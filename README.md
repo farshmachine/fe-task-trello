@@ -14,7 +14,7 @@ Implement Trello task positioning approach
 # TODO
 
 - [x] Create project boilerplate
-- [ ] Add basic layout
+- [x] Add basic layout
 - [ ] Implement adding item to the list logic
 - [ ] Add `react-beautiful-dnd` lib. Implement drag and drop
 - [ ] Implement sorting logic
