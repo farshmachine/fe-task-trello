@@ -15,6 +15,10 @@ The pos assignment logic was established by observation production Trello app.
 
 in browser console `window.GET_CARDS` will print to console current cards
 
+**or**
+
+visit it on [pages](https://farshmachine.github.io/fe-task-trello/).
+
 # TODO
 
 - [x] Create project boilerplate
