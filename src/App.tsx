@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 import CardForm from './components/CardForm/CardForm';
 import CardList from './components/CardList/CardList';
 import { ICard } from './components/Card/Card';
@@ -17,10 +18,16 @@ function App() {
     },
     [cards],
   );
+
+  const handleDragEnd = useCallback((result) => {
+    console.log(result);
+  }, []);
   return (
     <main className="app">
-      <CardList items={cards} />
-      <CardForm onSubmit={addCard} />
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <CardList items={cards} />
+        <CardForm onSubmit={addCard} />
+      </DragDropContext>
     </main>
   );
 }

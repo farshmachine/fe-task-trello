@@ -1,3 +1,4 @@
+import { Droppable, DroppableProvided } from 'react-beautiful-dnd';
 import Card, { ICard } from '../Card/Card';
 import './cardlist.css';
 
@@ -7,10 +8,15 @@ interface ICardListProps {
 
 export default function CardList({ items }: ICardListProps) {
   return (
-    <ul className="list">
-      {items.map((item) => (
-        <Card key={item.pos} item={item} />
-      ))}
-    </ul>
+    <Droppable droppableId="droppable">
+      {(provided: DroppableProvided) => (
+        <ul className="list" {...provided.droppableProps} ref={provided.innerRef}>
+          {items.map((item, index) => (
+            <Card key={item.pos} item={item} index={index} />
+          ))}
+          {provided.placeholder}
+        </ul>
+      )}
+    </Droppable>
   );
 }
