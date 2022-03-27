@@ -16,7 +16,12 @@ export default function Card({ item, index }: ICardProps) {
   return (
     <Draggable draggableId={item.pos.toString()} index={index}>
       {(provided: DraggableProvided) => (
-        <li className="card" {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps}>
+        <li
+          className="card"
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
           {content}
           <span className="pos">
             pos:

@@ -12,15 +12,18 @@ export default function CardForm({ onSubmit }: ICardFormProps) {
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const input = (e.target as TFormTarget).text;
-      onSubmit(input.value);
-      input.value = '';
+
+      if (input.value) {
+        onSubmit(input.value);
+        input.value = '';
+      }
     },
     [onSubmit],
   );
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <textarea className="input" name="text" />
+      <input className="input" name="text" placeholder="Enter text here" />
       <button type="submit" className="button">Add</button>
     </form>
   );
